@@ -9,7 +9,7 @@
 		</p>
 		
 		<p>
-			<%= post.body %>
+			<%= truncate(post.body, length: 400) %>
 		</p>
 	</div>
 <% end %>
