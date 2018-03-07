@@ -12,8 +12,12 @@
 	<%= @post.body %>
 </p>
 
+<% if user_signed_in? %>
+
 <%= link_to 'Edit', edit_post_path(@post) %>
 <%= link_to 'Destroy', post_path(@post), method: :delete, data: { confirm: "Are you certain?" } %>
+
+<% end %>
 
 <div id="comments">
 	<p>
