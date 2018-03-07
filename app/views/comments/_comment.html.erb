@@ -1,22 +1,21 @@
-<div>
-	<div>
-		<p>
-			name: <%=  comment.name %>
-		</p>
-	</div>
-	<div>
-		<p>
+<div class="row">
+
+	<div class="col-12">
+		<hr>
+		<h5>
+			<%=  comment.name %>
+			<small>
+				<%= time_ago_in_words(comment.created_at) %> ago
+			</small>
+		</h5>
+	
+		<p class="pt-2 pb-2">
 			<%=  comment.body %>
 		</p>
-	</div>
-	<div>
-		<p>
-			<%= time_ago_in_words(comment.created_at) %>
-		</p>
-	</div>
-	<div>
 		<% if user_signed_in? %>
-		<%= link_to 'Delete', [comment.post, comment], method: :delete, data: { confirm: "Are you sure? "} %>
+			<div class="col-12">
+				<%= link_to 'Delete', [comment.post, comment], method: :delete, data: { confirm: "Are you sure? "} %>
+			</div>
 		<% end %>
 	</div>
 </div>

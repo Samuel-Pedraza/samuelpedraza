@@ -1,31 +1,48 @@
-<h1>
-	Title:
-	<%= @post.title %>
-</h1>
+<div class="container">
 
-<p>
-	Created:
-	<%= time_ago_in_words(@post.created_at) %>
-</p>
+	<div class="row">
+		<div class="col-8">					
+			<h1>
+				<%= @post.title %>
+			</h1>
 
-<p>
-	<%= @post.body %>
-</p>
+			<p>
+				Written <%= time_ago_in_words(@post.created_at) %> ago
+			</p>
 
-<% if user_signed_in? %>
+			<p>
+				<%= @post.body %>
+			</p>
+		</div>
+	</div>
 
-<%= link_to 'Edit', edit_post_path(@post) %>
-<%= link_to 'Destroy', post_path(@post), method: :delete, data: { confirm: "Are you certain?" } %>
+	<% if user_signed_in? %>
 
-<% end %>
+	<%= link_to 'Edit', edit_post_path(@post) %>
+	<%= link_to 'Destroy', post_path(@post), method: :delete, data: { confirm: "Are you certain?" } %>
 
-<div id="comments">
-	<p>
-		<%= @post.comments.count %> 
-	</p>
+	<% end %>
+	
+	<div class="col-12">
+		<%= link_to 'return to main page', root_path %>
+	</div>
+	<div class="col-12 pb-5">
+		<%= link_to 'return to blog page', posts_path %>
+	</div>
 
+	<div id="comments">
+		
+	<h4>
+		<%= @post.comments.count %> Comments
+	</h4>	
+		
+		
 	<%= render @post.comments %>
-
+		
+		
 	<h3>Join Discussion</h3>
 	<%= render "comments/form" %>
+		
+	</div>
+
 </div>

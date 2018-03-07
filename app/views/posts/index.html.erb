@@ -1,15 +1,29 @@
-<% @posts.each do |post| %>
-	<div>
-		<h2>
-			<%= link_to post.title, post %>
-		</h2>
 
-		<p>
-			<%=  time_ago_in_words(post.created_at)	%>
-		</p>
-		
-		<p>
-			<%= truncate(post.body, length: 400) %>
-		</p>
+<div class="container">
+			<hr>	
+<% @posts.each do |post| %>
+	<div class="row">
+		<div class="col-12">
+			<h2>
+				<%= link_to post.title, post %>
+			</h2>
+
+			<p>
+				<%=  time_ago_in_words(post.created_at)	%>
+			</p>
+			
+			<p>
+				<%= truncate(post.body, length: 400) %>
+			</p>
+			<hr>			
+		</div>
 	</div>
 <% end %>
+
+<% if user_signed_in? %>
+	<%= link_to 'new blog', new_post_path %>
+<% end %>
+
+<%= link_to 'return to main page', root_path %>
+
+</div>
