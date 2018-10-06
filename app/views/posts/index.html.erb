@@ -1,4 +1,6 @@
-
+<% if user_signed_in? %>
+	<%= link_to 'new blog', new_post_path %>
+<% end %>
 <div class="container">
 			<hr>	
 <% @posts.each do |post| %>
@@ -18,10 +20,6 @@
 			<hr>			
 		</div>
 	</div>
-<% end %>
-
-<% if user_signed_in? %>
-	<%= link_to 'new blog', new_post_path %>
 <% end %>
 
 <%= link_to 'return to main page', root_path %>
