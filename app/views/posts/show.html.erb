@@ -32,19 +32,4 @@
 		<%= link_to 'return to blog page', posts_path %>
 	</div>
 
-	<div id="comments">
-		
-	<h4>
-		<%= @post.comments.count %> Comments
-	</h4>	
-		
-		
-	<%= render @post.comments %>
-		
-		
-	<h3>Join Discussion</h3>
-	<%= render "comments/form" %>
-		
-	</div>
-
 </div>
