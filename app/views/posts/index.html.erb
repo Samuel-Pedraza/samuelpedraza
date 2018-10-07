@@ -1,27 +1,38 @@
 <% if user_signed_in? %>
 	<%= link_to 'new blog', new_post_path %>
 <% end %>
-<div class="container">
-			<hr>	
+<div class="container">	
+	<div class="row">
+	<div class="col-md-9 offset-md-1">
+		<%= link_to 'Return to main page', root_path, class: "btn btn-success" %>
+	</div>
+</div>
 <% @posts.each do |post| %>
 	<div class="row">
-		<div class="col-12">
-			<h2>
-				<%= link_to post.title, post %>
-			</h2>
+		<div class="col-md-9 offset-1 pt-3">
+			<div class="card">
+				
+			<div class="card-header">
+				<h2>
+					<%= link_to post.title, post %>
+				</h2>
 
-			<p>
-				Written <%=  time_ago_in_words(post.created_at)	%> ago
-			</p>
-			
-			<p>
-				<%= truncate(post.body, length: 200) %>
-			</p>
-			<hr>			
+				<p>
+					Written <%=  time_ago_in_words(post.created_at)	%> ago
+				</p>				
+			</div>
+			<div class="card-body">
+					<p> <%= truncate(post.body, length: 200) %> </p>
+					<%= link_to "Read More", post, class: "btn btn-primary btn-sm"%>
+			</div>
+		</div>		
 		</div>
 	</div>
 <% end %>
-
-<%= link_to 'return to main page', root_path %>
+<div class="row">
+	<div class="col-md-9 offset-1 mt-5  mb-5">
+		<%= link_to 'Return to main page', root_path, class: "btn btn-success" %>
+	</div>
+</div>
 
 </div>
