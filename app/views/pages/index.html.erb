@@ -1,28 +1,33 @@
 <meta name="description" content="Samuel Pedraza's website: I'm a web developer with a lot of different interests. I post about my thoughts, articles I've written, and some more stuff.">
+<meta charset="utf-8">
 <div class="container">
 	<div class="row">
-		<h1 class="pb-3">Samuel Pedraza</h3>
+		<div class="col-md-12">
+			<h1 class="pb-3">Samuel Pedraza</h1>			
+		</div>
 	</div>
 	<div class="row">
 		<div class="col-12 pb-3">
-			<%= image_tag('samuelpedraza.jpg', height: '165', alt: "Samuel Pedraza")  %>
+			<%= image_tag('samuelpedraza.jpg', height: '165', alt: "Samuel Pedraza web developer programmer Sam")  %>
 		</div>
 	</div>
 	<div class="row">
-		<h3>About:</h3>
+		<div class="col-md-12">
+			<h3>About Samuel Pedraza</h3>
+		</div>
 	</div>
 	<div class="row">
-		<div class="col-12">
+		<div class="col-md-12">
 			<p>I am a web developer with a strong interest in cryptocurrency, theology, and deconstructing subjects.</p>
 			<p>I occasionally speak at my local church. I read as much as I can.</p>
 		</div>
-		<div class="col-12">
+		<div class="col-md-12">
 			<p>View my <a href="/posts">blog</a> for some cool stuff.</p>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-12">
-			<h3>Links</h3>	
+		<div class="col-md-12">
+			<h3>More about Samuel Pedraza</h3>	
 			<ul>
 				<li>
 					<a href="/posts">
@@ -40,7 +45,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="mailto:samdpdraza@gmail.com">
+					<a href="mailto:samdpedraza@gmail.com">
 						Email
 					</a>
 				</li>
@@ -52,19 +57,32 @@
 			</ul>
 		</div>
 	</div>
-	
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h3>Contact me</h3>
-				<p>I do programming gigs. Hit me up for any programming job or gig you have.</p>
-				<form action="https://formspree.io/samdpdraza@gmail.com" method="POST" class="form-group">
-			    <input type="text" name="name" class="form-control m-2" placeholder="Name">
-			    <input type="email" name="_replyto" class="form-control m-2" placeholder="Your Email">
-			    <textarea col="50" row="10" name="message" class="form-control m-2" placeholder="Your message"></textarea>
-			    <input type="submit" value="Send" class="btn btn-primary m-2">
-				</form>
-			</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Most Recent Blog Posts</h2>
 		</div>
+		<% @posts.each do |post| %>
+		<div class="col-md-12">
+			<h3 class="pt-3"><%= link_to post.title, post %></h3>
+		</div>
+		<% end %>
 	</div>
 </div>
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "email": "mailto:samdpedraza@gmail.com",
+      "image": "samuelpedraza.jpg",
+      "jobTitle": "Web Developer",
+      "name": "Samuel Pedraza",
+      "memberOf": "Libertarian Party",
+      "url": "http://www.samuelpedraza.com",
+	    "sameAs" : [ "https://www.facebook.com/samuel.pedraza.9",
+      "https://www.linkedin.com/in/samuel-pedraza/",
+      "https://twitter.com/samuel__pedraza",
+      "https://www.instagram.com/sam_pedraza/"]
+    }
+</script>
