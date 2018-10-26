@@ -65,7 +65,9 @@
 		</div>
 		<% @posts.reverse.each do |post| %>
 		<div class="col-md-12">
-			<h3 class="pt-3"><%= link_to post.title, post %></h3>
+			<ul>
+				<li><%= link_to post.title, post %></li>
+			</ul>
 		</div>
 		<% end %>
 	</div>
