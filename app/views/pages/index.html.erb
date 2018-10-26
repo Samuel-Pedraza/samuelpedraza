@@ -63,13 +63,13 @@
 		<div class="col-md-12">
 			<h2>Most Recent Blog Posts</h2>
 		</div>
-		<% @posts.reverse.each do |post| %>
 		<div class="col-md-12">
 			<ul>
-				<li><%= link_to post.title, post %></li>
+				<% @posts.reverse.each do |post| %>
+					<li><%= link_to post.title, post %></li>
+				<% end %>
 			</ul>
 		</div>
-		<% end %>
 	</div>
 </div>
 <script type="application/ld+json">
